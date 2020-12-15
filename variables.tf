@@ -1,5 +1,5 @@
 variable "tenancy_ocid" {
-  description = "OCID of the tenant"
+  description = "OCID of the OCI tenant"
 }
 variable "user_ocid" {
   description = "OCID of the user creating the infrastructure"
@@ -11,17 +11,21 @@ variable "private_key_path" {
   description = "path to the private key used for authentication"
 }
 variable "region" {
-  description = "region where the compartment is located"
+  description = "region where the compartment is located (e.g. uk-london-1)"
 }
 variable "parent_compartment_ocid" {
   description = "OCID of the parent compartment"
 }
+
 variable "compartment_name" {
   description = "name of the compartment to create"
+  default = "vmseries-compartment"
 }
 variable "vcn_cidr" {
   description = "cidr block to use for the vcn"
+  default = "192.168.0.0/16"
 }
+
 variable "fw_mgmt_src_ip" {
   description = "source IP or CIDR allowed to manage the FW"
 }
@@ -30,60 +34,80 @@ variable "fw_ocid" {
 }
 variable "fw_shape_size" {
   description = "shape size for the FW (VM.Standard2.4 minimum)"
+  default = "VM.Standard2.4"
 }
 variable "ssh_authorized_key" {
   description = "public SSH key to install on the hosts"
 }
 variable "management_cidr" {
   description = "CIDR block for the management subnet"
+  default = "192.168.0.0/24"
 }
 variable "fw1_management_ip" {
   description = "IP address for the fw1 management interface"
+  default = "192.168.0.11"
 }
+
 variable "fw2_management_ip" {
   description = "IP address for the fw2 management interface"
+  default = "192.168.0.12"
 }
 variable "untrust_cidr" {
   description = "CIDR block for the untrust subnet"
+  default = "192.168.1.0/24"
 }
+
 variable "fw1_untrust_ip" {
   description = "IP address for the fw1 untrust interface"
+  default = "192.168.1.101"
 }
 variable "fw2_untrust_ip" {
   description = "IP address for the fw2 untrust interface"
+  default = "192.168.1.102"
 }
 variable "untrust_floating_ip" {
   description = "floating IP address for the untrust interface"
+  default = "192.168.1.100"
 }
 variable "trust_cidr" {
   description = "CIDR block for the trust subnet"
+  default = "192.168.2.0/24"
 }
 variable "fw1_trust_ip" {
   description = "IP address for the fw1 trust interface"
+  default = "192.168.2.101"
 }
 variable "fw2_trust_ip" {
   description = "IP address for the fw2 trust interface"
+  default = "192.168.2.102"
 }
 variable "trust_floating_ip" {
   description = "floating IP address for the trust interface"
+  default = "192.168.2.100"
 }
 variable "ha2_cidr" {
   description = "CIDR block for the ha2 subnet"
+  default = "192.168.30.0/24"
 }
 variable "fw1_ha2_ip" {
   description = "IP address for the fw1 ha2 interface"
+  default = "192.168.30.101"
 }
 variable "fw2_ha2_ip" {
   description = "IP address for the fw2 ha2 interface"
+  default = "192.168.30.102"
 }
 variable "web_cidr" {
   description = "CIDR block for the web subnet"
+  default = "192.168.101.0/24"
 }
 variable "web1_ip" {
   description = "ip adress for web1"
+  default = "192.168.101.2"
 }
 variable "server_shape_size" {
   description = "shape size for the server"
+  default = "VM.Standard2.1"
 }
 variable "ubuntu_image_ocid" {
   default = {
