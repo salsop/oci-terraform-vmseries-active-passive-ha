@@ -1,5 +1,11 @@
 terraform {
   required_version = ">= 0.13"
+
+  required_providers {
+    oci = {
+      version = "~> 4.6.0"
+    }
+  }
 }
 
 provider "oci" {
@@ -9,5 +15,4 @@ provider "oci" {
   private_key_path = var.private_key_path
   region           = var.region
 
-  version = "~> 4.6.0"
 }
